@@ -1,0 +1,28 @@
+seed: 42
+output_dir: output
+
+# целевой размер классов
+classes:
+  good: {target: 4500}
+  rain: {target: 5000, synthetic: [rain], diffusion_prompts: ["heavy rain railway view"]}
+  fog:  {target: 5000, synthetic: [fog],  diffusion_prompts: ["dense fog rail tracks"]}
+  snow: {target: 5000, synthetic: [snow], diffusion_prompts: ["blizzard from train cabin"]}
+  glare:{target: 5000, synthetic: [glare]}
+  dark: {target: 5000, synthetic: [darkness], diffusion_prompts: ["night railway minimal light"]}
+  dirt: {target: 5000, synthetic: [dirt]}
+
+augmentations:
+  common:
+    - Resize: {height: 224, width: 224}
+    - RandomBrightnessContrast: {p: 0.4, brightness_limit: 0.2, contrast_limit: 0.2}
+    - GaussianBlur: {p: 0.1, blur_limit: 3}
+  weather_specific: true
+
+diffusion:
+  engine: "sdxl"          # sdxl | yandex
+  batch_size: 4
+  num_steps: 25
+  negative_prompt: "text, watermark, logo"
+  yandex:
+    api_key: "YA_API_KEY"
+    folder_id: "b1g*********"

@@ -1,0 +1,23 @@
+autotune-data/
+├── README.md
+├── setup.sh
+├── requirements.txt
+├── config.yaml
+├── src/
+│   ├── __init__.py
+│   ├── utils.py
+│   ├── dataset_structures.py
+│   ├── augmentations.py
+│   ├── diffusion.py          # ⟵ генерация через Stable-Diffusion и Yandex API
+│   ├── synthetic/
+│   │   ├── __init__.py
+│   │   ├── fog.py
+│   │   ├── rain.py
+│   │   ├── snow.py
+│   │   ├── glare.py
+│   │   ├── darkness.py
+│   │   └── dirt.py
+│   ├── generate_dataset.py
+│   └── cli.py
+└── tests/
+    └── test_pipeline.py
